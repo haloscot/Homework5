@@ -1,10 +1,10 @@
 $( document ).ready(function() {
 
-    var date = moment().format();
-    $('#today').text(date);
+    var date = moment().format('DD MMM YYYY');
+    $('#today').text(moment().format('DD MMM YYYY'));
 
     var now = moment().get('hour');
-    console.log(date.hour);
+    console.log(now);
 
 
 
