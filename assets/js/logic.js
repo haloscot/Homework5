@@ -1,9 +1,13 @@
 $( document ).ready(function() {
 
-    var date = moment().format('ll');
+    var date = moment().format();
     $('#today').text(date);
 
-    //Populate the hour section of div
+    var now = moment().get('hour');
+    console.log(date.hour);
+
+
+
 
 
 
