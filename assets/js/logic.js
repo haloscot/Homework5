@@ -6,36 +6,39 @@ $(document).ready(function() {
 
     //get the hour of day to set colours for hour element.
     var hourEl = moment().get('hour');
-
-    var test = $(".hour");
+    console.log(hourEl);
 
     // change colour of time span based on time of day.
-    $.each(test, function() {
-        if ($( this ).attr('value') > hourEl) {
-            test.addClass( "future" );
-            console.log(test);
+    $(".hour").each(function() {
+        var timeIndex = parseInt($(this).attr('value'));
+        if (timeIndex < hourEl){
+            $(this).addClass( "past" );
+            console.log(this + " past");
         }
-        else if ($( this ).attr('value') === hourEl) {
-            test.addClass( "present" );
+        if (timeIndex === hourEl) {
+            $(this).addClass( "present" );
+            console.log(this);
         }
-        else {
-            test.addClass( "past" );
+        if (timeIndex > hourEl) {
+            $(this).addClass( "future" );
+            console.log(this);
+            console.log("future");
         }
     });
 
 
-    //Event listener for all buttons
-    $('#saveBtn').click(function(event) {
-        var valueAttr = ("data-hour").val();
-        var notes = JSON.parse(window.localStorage.getItem("#description"));
-        console.log('clicked', $(this.text()));
-        alert("Save button clicked!");
-    });
+    // //Event listener for all buttons
+    // $('#saveBtn').click(function(event) {
+    //     var valueAttr = ("data-hour").val();
+    //     var notes = JSON.parse(window.localStorage.getItem("#description"));
+    //     console.log('clicked', $(this.text()));
+    //     alert("Save button clicked!");
+    // });
 
-    $("#saveBtn").click(function() {
-        var value = $("#saveBtn").index(this)
-        console.log(value);
-    });
+    // $("#saveBtn").click(function() {
+    //     var value = $("#saveBtn").index(this)
+    //     console.log(value);
+    // });
 });
 
 
