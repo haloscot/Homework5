@@ -43,13 +43,16 @@ $(document).ready(function() {
       }
 
     $(".saveBtn").on("click", function() {
-        //notes = copyText();
-        //Retrieve contents of textarea and save to
-        localStorage.setItem("notes", $('#description').text());
-        console.log($('#description').text());
-        //JSON.stringify(notes)
 
-    });
+        $('textarea[name*=' + id +'').select();
+        document.execCommand("copy");
+        $("textarea").select();
+
+        document.execCommand('copy');
+        console.log("If I have reached this line, it was a success!");
+        // localStorage.setItem("notes", contents);
+        // console.log(contents);
+        });
 });
 
 // additional functions:
